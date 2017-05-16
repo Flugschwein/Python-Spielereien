@@ -29,7 +29,7 @@ print(time1)
 print(count,total)
 
 #Create a loop.
-while total != ('hallo'):
+while total != ('anton'):
     
 #Roll again.
     roll = choice(alphabet)
@@ -51,12 +51,12 @@ time2 = asctime()
 save_file(str(count) + '.txt', str([count, time1, time2]))
 
 #Print Hallo, the number of rolls it needed and the time that was needed.
-print('Hallo')
+print(total)
 print('Es hat ',count,'Versuche gebraucht.')
 print('Der Versuch hat von',time1,'bis',time2,'gedauert')
 
 #Ask if the program should close.
-frage = input('Willst du das Programm verlassen? (1:Ja/2:Nein)')
+frage = input('Willst du das Programm verlassen? 1=Ja')
 while True:
 
 #Close it.
