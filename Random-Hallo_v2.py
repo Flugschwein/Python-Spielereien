@@ -29,7 +29,7 @@ print(time1)
 print(total)
 
 #Create a loop.
-while True:
+while total != ('hallo'):
     if total != ('hallo') :
 
 #Roll again.
@@ -61,12 +61,8 @@ print('Hallo')
 print('Es hat ',count,'Versuche gebraucht.')
 print('Der Versuch hat von',time1,'bis',time2,'gedauert')
 
-exit()
-
 #Ask if the program should close.
 frage = input('Willst du das Programm verlassen? (1:Ja/2:Nein)')
-
-
 while True:
 
 #Close it.
