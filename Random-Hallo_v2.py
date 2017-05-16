@@ -62,12 +62,6 @@ while True:
 #Close it.
     if frage == '1':
         exit()
-
-#Wait an eternity, then close.
-    elif frage == '2':
-        sleep(1000000)
-        exit()
-
 #Ask again, because the answer was inalid.
     else:
         frage = input('Keine korrekte Eingabe! (1:Ja/2:Nein)')
