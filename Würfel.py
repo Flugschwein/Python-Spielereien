@@ -1,15 +1,11 @@
 from random import randint
 
 roll = randint(1,6)
-second_roll = randint(1,6)
+answer = ''
 
-if roll < 6 :
+while answer != 'n':
     print('Du hast',roll, 'gewürfelt!')
+    roll = randint(1,6)
+    answer = input('Nochmal würfeln?(j/n)')
 
-else :
-    print('Du hast 6 gewürfelt!')
-    print('Weil du eine 6 gewürfelt hast, darfst du noch einmal würfeln!')
-    print('Dein zusätzlicher Wurf ist eine',second_roll,'!')
-
-
-
+exit()
