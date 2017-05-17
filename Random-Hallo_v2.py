@@ -15,7 +15,7 @@ roll3 = choice(alphabet)
 roll4 = choice(alphabet)
 roll5 = choice(alphabet)
 #Set the count to 1.
-count = 1
+count = 0
 total = (roll + roll2 + roll3 + roll4 + roll5)
 
 #Create a function we are going to need later
@@ -26,7 +26,7 @@ def save_file(filename, data):
 #Print the starting time and the first roll.
 print(time1)
 
-print(count,total)
+print(count)
 
 #Create a loop.
 while total != ('anton'):
@@ -43,7 +43,8 @@ while total != ('anton'):
     total = (roll + roll2 + roll3 + roll4 + roll5)
 
 #Print the count and the roll.
-    print(count,total)
+    if count%10000 == 0:
+        print(count)
 #Set the time Hallo was created.
 time2 = asctime()
 
