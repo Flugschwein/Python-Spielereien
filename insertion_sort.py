@@ -16,14 +16,12 @@ print('Before: ', random_items)
 insertion_sort(random_items)
 print('After : ', random_items)
 times = []
-
-for x in range(1,10000):
-    count = 0
-    for i in random_items:
-        if i == x:
-            count += 1
-    times.append(count)
-    print(x,'->',times[(x-1)])
+length = len(random_items)
+for x in range(length):
+    times.append(0)
+for i in random_items:
+    times[i] += 1
+    print(i,'->',times[i])
 print('Fertig')
 count = 0
 for y in range(len(times)):
