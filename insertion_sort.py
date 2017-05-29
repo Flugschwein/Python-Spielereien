@@ -12,17 +12,22 @@ def insertion_sort(l):
         l[j+1] = key
 
 
-print 'Before: ', random_items
+print('Before: ', random_items)
 insertion_sort(random_items)
-print 'After : ', random_items
+print('After : ', random_items)
 times = []
 
-for x in range(1,1000):
-    times.append(x)
+for x in range(1,9000):
+    count = 0
     for i in random_items:
         if i == x:
-            times[x] += 1
-    print(x, times[x])
+            count += 1
+    times.append(count)
+    print(x,'->',times[(x-1)])
 print('Fertig')
+count = 0
+for y in range(len(times)):
+    count += times[y]
 
+print(count/len(times))
             
