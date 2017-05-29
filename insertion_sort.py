@@ -17,7 +17,7 @@ insertion_sort(random_items)
 print('After : ', random_items)
 times = []
 
-for x in range(1,9000):
+for x in range(1,10000):
     count = 0
     for i in random_items:
         if i == x:
@@ -27,7 +27,7 @@ for x in range(1,9000):
 print('Fertig')
 count = 0
 for y in range(len(times)):
-    count += times[y]
+    count += random_items[y]
 
-print(count/len(times))
+print(count/len(random_items))
             
