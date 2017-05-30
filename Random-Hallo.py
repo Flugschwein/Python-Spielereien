@@ -29,7 +29,7 @@ print(time1)
 print(count)
 
 #Create a loop.
-while total != ('anton'):
+while total != ('hallo'):
     
 #Roll again.
     roll = choice(alphabet)
@@ -49,7 +49,7 @@ while total != ('anton'):
 time2 = asctime()
 
 #Create a .txt file with the needed rolls in it
-save_file(str(count) + '.txt', str([count, time1, time2]))
+save_file('Results/' + str(count) + '.txt', str([count, time1, time2]))
 
 #Print Hallo, the number of rolls it needed and the time that was needed.
 print(total)
