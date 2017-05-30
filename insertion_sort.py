@@ -27,5 +27,5 @@ count = 0
 for y in range(len(times)):
     count += random_items[y]
 
-print(count/len(random_items))
+print(count/length)
             
