@@ -57,7 +57,7 @@ print('Es hat ',count,'Versuche gebraucht.')
 print('Der Versuch hat von',time1,'bis',time2,'gedauert')
 
 #Ask if the program should close.
-frage = input('Willst du das Programm verlassen? 1=Ja')
+frage = input('Willst du das Programm verlassen? 1=Ja\n')
 while True:
 
 #Close it.
@@ -65,4 +65,4 @@ while True:
         exit()
 #Ask again, because the answer was inalid.
     else:
-        frage = input('Keine korrekte Eingabe! (1:Ja/2:Nein)')
+        frage = input('Keine korrekte Eingabe! (1=Ja)\n')
