@@ -18,10 +18,19 @@ roll5 = choice(alphabet)
 count = 0
 total = (roll + roll2 + roll3 + roll4 + roll5)
 
-#Create a function we are going to need later
+#Create two functions we are going to need later
 def save_file(filename, data):
     with open(filename, 'w') as f:
         f.write(data)
+def open_file(filename):
+    f = open(filename, 'r')
+    read = f.read().splitlines()
+    return read
+def Summe(liste):
+    Zwischensumme = 0
+    for i in range(len(liste)):
+        Zwischensumme += int(liste[i])
+    return Zwischensumme
 
 #Print the starting time and the first roll.
 print(time1)
@@ -50,6 +59,13 @@ time2 = asctime()
 
 #Create a .txt file with the needed rolls in it
 save_file('Results/' + str(count) + '.txt', str([count, time1, time2]))
+R = open('Results/Results.csv', 'a')
+R.write('\n'+str(int(count)))
+R.close()
+Results = open_file('Results/Results.csv')
+print('Results: ',Results)
+text = str('Anzahl,Summe,Durchschnitt\n'+str(len(Results))+','+str(Summe(Results))+','+str(Summe(Results)/len(Results)))
+save_file('Results/Statistik.csv',text)
 
 #Print Hallo, the number of rolls it needed and the time that was needed.
 print(total)
