@@ -60,7 +60,7 @@ time2 = asctime()
 #Create a .txt file with the needed rolls in it
 save_file('Results/' + str(count) + '.txt', str([count, time1, time2]))
 R = open('Results/Results.csv', 'a')
-R.write('\n'+str(int(count)))
+R.write(str(int(count))+'\n')
 R.close()
 Results = open_file('Results/Results.csv')
 print('Results: ',Results)
