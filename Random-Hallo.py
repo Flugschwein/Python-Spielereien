@@ -51,7 +51,7 @@ while total != ('hallo'):
     count += 1
     total = (roll + roll2 + roll3 + roll4 + roll5)
 #Print the count and the roll.
-    if count%100000 == 0:
+    if count%1000000 == 0:
         print(count)
 #Set the time Hallo was created.
 time2 = asctime()
