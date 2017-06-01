@@ -50,7 +50,6 @@ while total != ('hallo'):
 #Add 1 to the count.
     count += 1
     total = (roll + roll2 + roll3 + roll4 + roll5)
-
 #Print the count and the roll.
     if count%100000 == 0:
         print(count)
