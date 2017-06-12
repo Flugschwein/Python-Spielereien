@@ -1,24 +1,94 @@
+use_synth :tri
 live_loop :blues_bass do
   #Erste Stufe
-  use_synth :tri
   2.times do
-    play :C, release: 0.6
+    play :C2, release: 0.6
     sleep 0.5
-    play :E, release: 0.6
+    play :E2, release: 0.6
     sleep 0.5
-    play :G, release: 0.6
+    play :G2, release: 0.6
     sleep 0.5
-    play :A, release: 0.6
+    play :A2, release: 0.6
     sleep 0.5
-    play :Bb, release: 0.6
+    play :Bb2, release: 0.6
     sleep 0.5
-    play :A, release: 0.6
+    play :A2, release: 0.6
     sleep 0.5
-    play :G, release: 0.6
+    play :G2, release: 0.6
     sleep 0.5
-    play :E, release: 0.6
+    play :E2, release: 0.6
     sleep 0.5
   end
-  #Fünfte Stufe
+  #Vierte Stufe
+  1.times do
+    play :F2, release: 0.6
+    sleep 0.5
+    play :A2, release: 0.6
+    sleep 0.5
+    play :C3, release: 0.6
+    sleep 0.5
+    play :D3, release: 0.6
+    sleep 0.5
+    play :Ds3, release: 0.6
+    sleep 0.5
+    play :D3, release: 0.6
+    sleep 0.5
+    play :C3, release: 0.6
+    sleep 0.5
+    play :A2, release: 0.6
+    sleep 0.5
+  end
+  #Erste Stufe
+  play :C2, release: 0.6
+  sleep 0.5
+  play :E2, release: 0.6
+  sleep 0.5
+  play :G2, release: 0.6
+  sleep 0.5
+  play :A2, release: 0.6
+  sleep 0.5
+  play :Bb2, release: 0.6
+  sleep 0.5
+  play :A2, release: 0.6
+  sleep 0.5
+  play :G2, release: 0.6
+  sleep 0.5
+  play :E2, release: 0.6
+  sleep 0.5
+  #FÃ¼nfte Stufe dann Vierte Stufe
+  play :G2, release: 0.6
+  sleep 0.5
+  play :B2, release: 0.6
+  sleep 0.5
+  play :D3, release: 0.6
+  sleep 0.5
+  play :E3, release: 0.6
+  sleep 0.5
+  #Wechsel
+  play :F2, release: 0.6
+  sleep 0.5
+  play :A2, release: 0.6
+  sleep 0.5
+  play :C3, release: 0.6
+  sleep 0.5
+  play :D3, release: 0.6
+  sleep 0.5
+  #Turnaround
+  play :C2, release: 0.6
+  sleep 0.5
+  play :E2, release: 0.6
+  sleep 0.5
+  play :F2, release: 0.6
+  sleep 0.5
+  play :Gb2, release: 0.6
+  sleep 0.5
+  play :G2, release: 0.6
+  sleep 0.5
+  play :F2, release: 0.6
+  sleep 0.5
+  play :E2, release: 0.6
+  sleep 0.5
+  play :D2, release: 0.6
+  sleep 0.5
   
 end
