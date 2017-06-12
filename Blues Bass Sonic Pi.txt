@@ -1,0 +1,24 @@
+live_loop :blues_bass do
+  #Erste Stufe
+  use_synth :tri
+  2.times do
+    play :C, release: 0.6
+    sleep 0.5
+    play :E, release: 0.6
+    sleep 0.5
+    play :G, release: 0.6
+    sleep 0.5
+    play :A, release: 0.6
+    sleep 0.5
+    play :Bb, release: 0.6
+    sleep 0.5
+    play :A, release: 0.6
+    sleep 0.5
+    play :G, release: 0.6
+    sleep 0.5
+    play :E, release: 0.6
+    sleep 0.5
+  end
+  #Fünfte Stufe
+  
+end
