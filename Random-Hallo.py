@@ -39,7 +39,7 @@ print(count)
 
 #Create a loop.
 while total != ('hallo'):
-    
+
 #Roll again.
     roll = choice(alphabet)
     roll2 = choice(alphabet)
@@ -81,3 +81,5 @@ while True:
 #Ask again, because the answer was inalid.
     else:
         frage = input('Keine korrekte Eingabe! (1=Ja)\n')
+print ('Hallo ich bin super toll')
+for i in range()
