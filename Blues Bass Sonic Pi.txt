@@ -1,3 +1,4 @@
+use_bpm 100
 use_synth :tri
 live_loop :blues_bass do
   #Erste Stufe
@@ -55,7 +56,7 @@ live_loop :blues_bass do
   sleep 0.5
   play :E2, release: 0.6
   sleep 0.5
-  #FÃ¼nfte Stufe dann Vierte Stufe
+  #Fünfte Stufe dann Vierte Stufe
   play :G2, release: 0.6
   sleep 0.5
   play :B2, release: 0.6
@@ -90,5 +91,27 @@ live_loop :blues_bass do
   sleep 0.5
   play :D2, release: 0.6
   sleep 0.5
+  
+end
+use_synth :piano
+live_loop :chords do
+  2.times do
+    sleep 2
+    play chord(:c, :minor)
+    sleep 0.875
+    play chord(:c, :minor)
+    sleep 1.125
+  end
+  sleep 2
+  play chord(:F, :minor)
+  sleep 0.875
+  play chord(:F, :minor)
+  sleep 1.125
+  sleep 2
+  play chord(:c, :minor)
+  sleep 0.875
+  play chord(:c, :minor)
+  sleep 1.125
+  sleep 8
   
 end
