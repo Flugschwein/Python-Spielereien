@@ -5,6 +5,8 @@ nohole = [1,2,3,4,5]
 noholes = {1:0,2:0,3:0,4:0,5:0}
 count = 0
 individualcount = 0
+maxcount = 0
+mincount = 0
 times = input('How many games should be simulated?')
 for i in range(int(times)):
     players = {1:9,2:9,3:9,4:9}
@@ -34,9 +36,15 @@ for i in range(int(times)):
     elif i > 0:
         if individualcount > high:
             high = individualcount
+            maxcount = 1
         elif individualcount < low:
             low = individualcount
+            mincount = 1
+        elif individualcount == low:
+            mincount += 1
+        elif individualcount == high:
+            maxcount += 1
     print(str(i)+'\t|'+str(individualcount))
 print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei: '+str(int(count)/int(times)))
-print('Fuer das laengste Spiel musste '+str(high)+' mal gewürfelt werden.')
-print('Fuer das kuerzeste Spiel musste '+str(low)+' mal gewürfelt werden.')
+print('Fuer das laengste Spiel('+str(maxcount)+' mal) musste '+str(high)+' mal gewürfelt werden.')
+print('Fuer das kuerzeste Spiel('+str(mincount)+' mal) musste '+str(low)+' mal gewürfelt werden.')
