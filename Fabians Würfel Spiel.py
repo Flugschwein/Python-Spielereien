@@ -29,4 +29,5 @@ for i in range(times):
                 if players[x] is 0:
                     break
     print(str(i)+'\t|'+str(individualcount))
-print('Der Durchschnitt an benötigten Würfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei:'+str(count/times))
+print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei:'+str(count/times))
+#told you
