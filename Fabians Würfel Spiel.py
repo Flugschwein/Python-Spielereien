@@ -6,14 +6,13 @@ noholes = {1:0,2:0,3:0,4:0,5:0}
 count = 0
 individualcount = 0
 times = input('How many games should be simulated?')
-for i in range(times):
+for i in range(int(times)):
     players = {1:9,2:9,3:9,4:9}
     noholes = {1:0,2:0,3:0,4:0,5:0}
     individualcount = 0
     while players[1] is not 0 and players[2] is not 0 and players[3] is not 0 and players[4] is not 0:
         for x in players:
             roll = randint(1,6)
-            count += 1
             individualcount += 1
             if roll in nohole:
                 if noholes[roll] is 0:
@@ -28,6 +27,16 @@ for i in range(times):
                 players[x] -= 1
                 if players[x] is 0:
                     break
+    count += individualcount
+    if i is 0:
+        high = individualcount
+        low = individualcount
+    elif i > 0:
+        if individualcount > high:
+            high = individualcount
+        elif individualcount < low:
+            low = individualcount
     print(str(i)+'\t|'+str(individualcount))
-print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei:'+str(count/times))
-#told you
+print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei: '+str(int(count)/int(times)))
+print('Fuer das laengste Spiel musste '+str(high)+' mal gewürfelt werden.')
+print('Fuer das kuerzeste Spiel musste '+str(low)+' mal gewürfelt werden.')
