@@ -26,11 +26,12 @@ def loop():
             prev = cur
             continue
         else:
-            print('yeah')
+            print('Found a change!!')
+            changetime = time.time()
             i += 1
-            with open('old-droptables.html', 'w') as old, open('new-droptables.html', 'w') as new, shelve.open('times') as shelf:
+            with open('old-droptables%s.html' %(i), 'w') as old, open('new-droptables%s.html' %(i), 'w') as new, shelve.open('times') as shelf:
                 shelf['start'] = start
-                shelf['change' + str(i)] = time.time()
+                shelf['change' + str(i)] = changetime
                 old.write(prev)
                 new.write(cur)
                 old.close()
