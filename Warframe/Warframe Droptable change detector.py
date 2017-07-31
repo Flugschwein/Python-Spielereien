@@ -11,21 +11,20 @@ def download_tables():
         droptables = urlopen('https://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html')
     except:
         print('Downloading failed!\nTrying again in 5 minutes')
-        
+        return None
     print('Processing droptables...')
     droptables = bs4.BeautifulSoup(droptables, 'html.parser')
     return droptables.prettify()
 
 
 def loop():
-    cur = ''
-    prev = download_tables()
+    prev = ""
     i = 0
     start = time.time()
     print(start)
     while True:
         cur = download_tables()
-        if cur == None:
+        if cur is None:
             time.sleep(300)
             continue
         elif cur == prev:
@@ -37,7 +36,9 @@ def loop():
             print('Found a change!!')
             changetime = time.time()
             i += 1
-            with open('old-droptables%s.html' %(i), 'w') as old, open('new-droptables%s.html' %(i), 'w') as new, shelve.open('times') as shelf:
+            with open('old-droptables%s.html' % i, 'w') as old,\
+                 open('new-droptables%s.html' % i, 'w') as new,\
+                 shelve.open('times') as shelf:
                 shelf['start'] = start
                 shelf['change' + str(i)] = changetime
                 old.write(prev)
@@ -48,4 +49,3 @@ def loop():
             prev = cur
             continue
 loop()
-    
