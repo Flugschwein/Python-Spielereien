@@ -1,25 +1,36 @@
 from random import randint
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+
+
 def generate_otp(sheets, length):
     for sheet in range(sheets):
-        with open("otp" + str(sheet) + ".txt","w") as f:
+        with open("otp" + str(sheet) + ".txt", "w") as f:
             for i in range(length):
-                f.write(str(randint(0,26))+"\n")
+                f.write(str(randint(0, 26))+"\n")
+
+
 def load_sheet(filename):
     with open(filename, "r") as f:
         contents = f.read().splitlines()
     return contents
+
+
 def get_plaintext():
     plaintext = input('Please type in your message. ')
     return plaintext.lower()
+
+
 def load_file(filename):
     with open(filename, "r") as f:
         contents = f.read()
     return contents
 
+
 def save_file(filename, data):
     with open(filename, 'w') as f:
         f.write(data)
+
+
 def encrypt(plaintext, sheet):
     ciphertext = ''
     for position, character in enumerate(plaintext):
@@ -30,6 +41,7 @@ def encrypt(plaintext, sheet):
             ciphertext += ALPHABET[encrypted]
     return ciphertext
 
+
 def decrypt(ciphertext, sheet):
     plaintext = ''
     for position, character in enumerate(ciphertext):
@@ -39,6 +51,8 @@ def decrypt(ciphertext, sheet):
             decrypted = (ALPHABET.index(character) - int(sheet[position])) % 26
             plaintext += ALPHABET[decrypted]
     return plaintext
+
+
 def menu():
     choices = ['1', '2', '3', '4']
     choice = '0'
@@ -73,4 +87,4 @@ def menu():
             elif choice == '4':
                 exit()
             choice = '0'
-    menu()
+menu()

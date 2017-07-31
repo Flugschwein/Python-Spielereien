@@ -82,4 +82,3 @@ while True:
     else:
         frage = input('Keine korrekte Eingabe! (1=Ja)\n')
 print ('Hallo ich bin super toll')
-for i in range()
