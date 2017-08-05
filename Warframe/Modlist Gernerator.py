@@ -1,5 +1,5 @@
 import bs4
-from urllib.request import urlopen
+import pprint
 
 
 def download_tables():
@@ -13,14 +13,20 @@ def download_tables():
         return None
     print('Processing droptables...')
     droptables = bs4.BeautifulSoup(droptables, 'html5lib')
-    print(droptables.prettify())
     return droptables
 
-
+breakers = ['Enemy Name']
+mods = []
 table = download_tables()
 for i in table.select('tr'):
-    #print(i.colspan)
     if i.has_attr('class'):
         continue
+    else:
+        try:
+            if i.th.get_text() in breakers:
+                continue
+            mods.append(i.th.get_text())
+        except:
+            continue
 
-print(mods)
+pprint.pprint(len(mods))
