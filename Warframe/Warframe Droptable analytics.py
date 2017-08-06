@@ -5,18 +5,31 @@ from urllib.request import urlopen
 
 def download_tables():
     print('Downloading droptables...')
+    droptables = ''
     try:
         droptables = urlopen('https://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html')
     except:
-        print('Downloading failed!\nTrying again in 5 minutes')
-        return None
+        print('Downloading failed!')
+        exit()
     print('Processing droptables...')
     droptables = bs4.BeautifulSoup(droptables)
+    print(droptables.prettify())
     return droptables
 
 
-def search_mods(mod,tables):
-    print(33)
+def search_mods(mod, tables):
+    headers = tables.select('#modLocations')[0].next_sibling.select('th')
+    i = 0
+    while headers[i].get_text != mod:
+        i += 1
+    mod_header = headers[i]
+    cur_mod_drop = mod_header.next_parent.next_sibling
+    drops = {}
+    while not cur_mod_drop.has_attr('class'):
+        enemy, mod_drop_chance, chance = cur_mod_drop.select('td')
+        drops[enemy] = (mod_drop_chance, chance)
+        cur_mod_drop = cur_mod_drop.next_sibling
+    print(drops)
 
 
 def return_modlist(tables):
@@ -75,7 +88,6 @@ def return_relic_list(tables):
     return set(relics)
 
 
-
 def define_input_type(item, tables):
     # 0 = Mod
     # 1 = Blueprint
@@ -105,3 +117,5 @@ testItems = ['axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith 
 for i in testItems:
     print(i)
     print(define_input_type(i, tables))
+    if define_input_type(i, tables) == 0:
+        search_mods(i, tables)
