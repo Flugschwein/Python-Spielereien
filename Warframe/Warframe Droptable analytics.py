@@ -11,7 +11,7 @@ def download_tables():
         print('Downloading failed!\nTrying again in 5 minutes')
         return None
     print('Processing droptables...')
-    droptables = bs4.BeautifulSoup(droptables, 'html5lib')
+    droptables = bs4.BeautifulSoup(droptables)
     return droptables
 
 
@@ -53,6 +53,26 @@ def return_blueprint_list(tables):
 
 def return_relic_list(tables):
     relics = []
+    tables = tables.select('#relicRewards')[0].next_sibling
+    for i in tables.select('tr'):
+        if i.has_attr('class'):
+            continue
+        else:
+            try:
+                i = i.th.get_text().lower()
+                if i.endswith(' (intact)'):
+                    i = i[:-9]
+                if i.endswith(' (exceptional)'):
+                    i = i[:-14]
+                if i.endswith(' (flawless)'):
+                    i = i[:-11]
+                if i.endswith(' (radiant)'):
+                    i = i[:-10]
+                relics.append(i)
+                continue
+            except AttributeError:
+                continue
+    return set(relics)
 
 
 
@@ -78,10 +98,10 @@ def define_input_type(item, tables):
     elif item + ' relic' in relics:
         return 4
     else:
-        return
+        return 5
 
-
-print(return_modlist(download_tables()))
-print(len(return_modlist(download_tables())))
-print(return_blueprint_list(download_tables()))
-print(len(return_blueprint_list(download_tables())))
+tables = download_tables()
+testItems = ['axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith n3 Relic', 'vItAl SeNsE', 'Serration']
+for i in testItems:
+    print(i)
+    print(define_input_type(i, tables))
