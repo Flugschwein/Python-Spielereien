@@ -20,16 +20,18 @@ def download_tables():
 def search_mods(mod, tables):
     headers = tables.select('#modLocations')[0].next_sibling.select('th')
     i = 0
-    while headers[i].get_text != mod:
+    while headers[i].get_text().lower() != mod:
         i += 1
     mod_header = headers[i]
-    cur_mod_drop = mod_header.next_parent.next_sibling
+    cur_mod_drop = mod_header.parent.next_sibling.next_sibling
     drops = {}
     while not cur_mod_drop.has_attr('class'):
-        enemy, mod_drop_chance, chance = cur_mod_drop.select('td')
+        enemy, mod_drop_chance, chance = cur_mod_drop.children
         drops[enemy] = (mod_drop_chance, chance)
         cur_mod_drop = cur_mod_drop.next_sibling
-    print(drops)
+    for i in drops:
+        print(i.get_text())
+        print(drops[i][0].get_text()+'\n'+drops[i][1].get_text())
 
 
 def return_modlist(tables):
@@ -113,9 +115,9 @@ def define_input_type(item, tables):
         return 5
 
 tables = download_tables()
-testItems = ['axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith n3 Relic', 'vItAl SeNsE', 'Serration']
+testItems = ['serration', 'axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith n3 Relic', 'vItAl SeNsE', 'Serration']
 for i in testItems:
     print(i)
     print(define_input_type(i, tables))
     if define_input_type(i, tables) == 0:
-        search_mods(i, tables)
+        search_mods(i.lower(), tables)
