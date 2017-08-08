@@ -9,11 +9,10 @@ def download_tables():
     try:
         droptables = urlopen('https://n8k6e2y6.ssl.hwcdn.net/repos/hnfvc0o3jnfvc873njb03enrf56.html')
     except:
-        print('Downloading failed!')
+        print('Downloading failed!\nCheck your internet connection and try again.')
         exit()
     print('Processing droptables...')
     droptables = bs4.BeautifulSoup(droptables)
-    print(droptables.prettify())
     return droptables
 
 
@@ -30,8 +29,7 @@ def search_mods(mod, tables):
         drops[enemy] = (mod_drop_chance, chance)
         cur_mod_drop = cur_mod_drop.next_sibling
     for i in drops:
-        print(i.get_text())
-        print(drops[i][0].get_text()+'\n'+drops[i][1].get_text())
+        print(i.get_text()+'\t'+drops[i][0].get_text()+'\t'+drops[i][1].get_text())
 
 
 def return_modlist(tables):
@@ -115,7 +113,7 @@ def define_input_type(item, tables):
         return 5
 
 tables = download_tables()
-testItems = ['serration', 'axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith n3 Relic', 'vItAl SeNsE', 'Serration']
+testItems = ['Corrosive Projection', 'axi a2', 'wAR BlueprinT', 'dread', 'paris prime blueprint', 'Lith n3 Relic', 'vItAl SeNsE', 'Serration']
 for i in testItems:
     print(i)
     print(define_input_type(i, tables))
