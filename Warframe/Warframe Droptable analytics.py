@@ -34,8 +34,8 @@ def search_mods(mod, tables):
 
 def return_modlist(tables):
     mods = []
-    tables = tables.select('#modLocations')[0].next_sibling
-    for i in tables.select('tr'):
+    modtables = tables.select('#modLocations')[0].next_sibling
+    for i in modtables.select('tr'):
         if i.has_attr('class'):
             continue
         else:
