@@ -7,6 +7,7 @@ count = 0
 individualcount = 0
 maxcount = 0
 mincount = 0
+wins = {1:0, 2:0, 3:0, 4:0}
 times = input('How many games should be simulated?')
 for i in range(int(times)):
     players = {1:9,2:9,3:9,4:9}
@@ -28,6 +29,7 @@ for i in range(int(times)):
             elif roll is 6:
                 players[x] -= 1
                 if players[x] is 0:
+                    wins[x] +=1
                     break
     count += individualcount
     if i is 0:
@@ -46,5 +48,14 @@ for i in range(int(times)):
             maxcount += 1
     print(str(i)+'\t|'+str(individualcount))
 print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei: '+str(int(count)/int(times)))
-print('Fuer das laengste Spiel('+str(maxcount)+' mal) musste '+str(high)+' mal gewürfelt werden.')
-print('Fuer das kuerzeste Spiel('+str(mincount)+' mal) musste '+str(low)+' mal gewürfelt werden.')
+print('Fuer das laengste Spiel ('\
+      + str(maxcount)+\
+      ' mal) musste '\
+      + str(high)\
+      + ' mal gewuerfelt werden.')
+print('Fuer das kuerzeste Spiel ('\
+      + str(mincount)\
+      + ' mal) musste '\
+      + str(low)\
+      + ' mal gewuerfelt werden.')
+print(wins)
