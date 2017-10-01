@@ -22,6 +22,7 @@ for i in range(int(times)):
                     noholes[roll] += 1
                     players[x] -= 1
                     if players[x] is 0:
+                        wins[x] += 1
                         break
                     elif noholes[roll] is 1:
                         noholes[roll] -= 1
@@ -46,7 +47,6 @@ for i in range(int(times)):
             mincount += 1
         elif individualcount == high:
             maxcount += 1
-    print(str(i)+'\t|'+str(individualcount))
 print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei: '+str(int(count)/int(times)))
 print('Fuer das laengste Spiel ('\
       + str(maxcount)+\
@@ -59,3 +59,9 @@ print('Fuer das kuerzeste Spiel ('\
       + str(low)\
       + ' mal gewuerfelt werden.')
 print(wins)
+for i in wins:
+    print('Spieler '\
+          + str(i)\
+          + ' hat '\
+          + str(wins[i])\
+          + ' mal gewonnen')
