@@ -1,23 +1,26 @@
 #! /usr/bin/python
 from random import randint
-players = {1:9,2:9,3:9,4:9}
-nohole = [1,2,3,4,5]
 noholes = {1:0,2:0,3:0,4:0,5:0}
 count = 0
 individualcount = 0
 maxcount = 0
 mincount = 0
-wins = {1:0, 2:0, 3:0, 4:0}
 times = input('How many games should be simulated?')
+player_count = input('How many Players should participate in the game?')
+players = {}
+wins = {}
+for p in range(int(player_count)):
+    wins[p + 1] = 0
 for i in range(int(times)):
-    players = {1:9,2:9,3:9,4:9}
+    for p in range(int(player_count)):
+        players[p+1] = 36 // int(player_count)
     noholes = {1:0,2:0,3:0,4:0,5:0}
     individualcount = 0
-    while players[1] is not 0 and players[2] is not 0 and players[3] is not 0 and players[4] is not 0:
+    while min(players.values()) > 0:
         for x in players:
             roll = randint(1,6)
             individualcount += 1
-            if roll in nohole:
+            if roll < 6:
                 if noholes[roll] is 0:
                     noholes[roll] += 1
                     players[x] -= 1
@@ -47,7 +50,9 @@ for i in range(int(times)):
             mincount += 1
         elif individualcount == high:
             maxcount += 1
-print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten spielen liegt bei: '+str(int(count)/int(times)))
+    if (i+1) % 1000 == 0:
+        print(str(i+1) + '\t|' + str(count/(i+1)))
+print('Der Durchschnitt an benoetigten Wuerfeln um das Spiel zu beenden von '+str(times)+' simulierten Spielen liegt bei: '+str(int(count)/int(times)))
 print('Fuer das laengste Spiel ('\
       + str(maxcount)+\
       ' mal) musste '\
@@ -58,7 +63,6 @@ print('Fuer das kuerzeste Spiel ('\
       + ' mal) musste '\
       + str(low)\
       + ' mal gewuerfelt werden.')
-print(wins)
 for i in wins:
     print('Spieler '\
           + str(i)\
